@@ -1,0 +1,70 @@
+# generated: 2026-03-03
+# project: bmad-test
+# project_key: NOKEY
+# tracking_system: file-system
+# story_location: d:/WorkSpace/ai/Antigravity/bmad-test/_bmad-output/implementation-artifacts
+
+# STATUS DEFINITIONS:
+# ==================
+# Epic Status:
+#   - backlog: Epic not yet started
+#   - in-progress: Epic actively being worked on
+#   - done: All stories in epic completed
+#
+# Epic Status Transitions:
+#   - backlog → in-progress: Automatically when first story is created (via create-story)
+#   - in-progress → done: Manually when all stories reach 'done' status
+#
+# Story Status:
+#   - backlog: Story only exists in epic file
+#   - ready-for-dev: Story file created in stories folder
+#   - in-progress: Developer actively working on implementation
+#   - review: Ready for code review (via Dev's code-review workflow)
+#   - done: Story completed
+#
+# Retrospective Status:
+#   - optional: Can be completed but not required
+#   - done: Retrospective has been completed
+#
+# WORKFLOW NOTES:
+# ===============
+# - Epic transitions to 'in-progress' automatically when first story is created
+# - Stories can be worked in parallel if team capacity allows
+# - SM typically creates next story after previous one is 'done' to incorporate learnings
+# - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
+
+generated: "2026-03-03"
+project: bmad-test
+project_key: NOKEY
+tracking_system: file-system
+story_location: "d:/WorkSpace/ai/Antigravity/bmad-test/_bmad-output/implementation-artifacts"
+
+development_status:
+  epic-1: in-progress
+  1-1-基础工程架构初始化与脚手架搭建: review
+  1-2-统一身份鉴权网关对接-sso-jwt: backlog
+  1-3-用户角色与政务权限打标-rbac-core: backlog
+  1-4-mybatis-plus-逻辑多租户防御基座-tenant-interceptor: backlog
+  epic-1-retrospective: optional
+
+  epic-2: backlog
+  2-1-初始化市区级宏观热力图缓存网关: backlog
+  2-2-echarts-聚光异常图谱节点封装: backlog
+  2-3-websocket-sse-突发红标实时告警: backlog
+  2-4-智能诊断抽屉与归因手风琴: backlog
+  2-5-静态经验智库图文引荐卡: backlog
+  epic-2-retrospective: optional
+
+  epic-3: backlog
+  3-1-xxl-job-定时跑批与断点续传管线: backlog
+  3-2-强时效的人工断点补录与防篡改审计: backlog
+  3-3-算法参数配置面板与沙箱通信器: backlog
+  3-4-异步试跑调度与进度长轮询: backlog
+  3-5-沙箱出库审批与大基线发布更迭: backlog
+  3-6-经验对策库-cms-富文本管理: backlog
+  epic-3-retrospective: optional
+
+  epic-4: backlog
+  4-1-标准-open-api-网关对外画像输出: backlog
+  4-2-高频轮询拦截限流卫士-rate-limiting: backlog
+  epic-4-retrospective: optional
