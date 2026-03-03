@@ -49,7 +49,7 @@ development_status:
 
   epic-2: in-progress
   2-1-初始化市区级宏观热力图缓存网关: done
-  2-2-echarts-聚光异常图谱节点封装: backlog
+  2-2-echarts-聚光异常图谱节点封装: done
   2-3-websocket-sse-突发红标实时告警: backlog
   2-4-智能诊断抽屉与归因手风琴: backlog
   2-5-静态经验智库图文引荐卡: backlog

@@ -1,0 +1,36 @@
+/* Story 2.2: 危险节点红框脉冲呼吸边框与聚光动画 */
+
+@keyframes pulse-danger {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+    }
+
+    70% {
+        transform: scale(1.02);
+        box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+    }
+}
+
+.pulse-overlay {
+    position: absolute;
+    pointer-events: none;
+    /* 防止覆盖掉底层图表的 Hover 交互 */
+    border-radius: 4px;
+    border: 2px solid rgba(239, 68, 68, 0.8);
+    animation: pulse-danger 2s infinite cubic-bezier(0.66, 0, 0, 1);
+    background-color: transparent;
+    z-index: 10;
+}
+
+/* 结合 ECharts Focus 时的遮盖 */
+.tooltip-title {
+    color: #999;
+    font-size: 14px;
+    margin-bottom: 4px;
+}

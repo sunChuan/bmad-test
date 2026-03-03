@@ -11,6 +11,12 @@ const routes = [
         path: '/login',
         name: 'Login',
         component: () => import('../views/Login.vue')
+    },
+    {
+        path: '/dashboard/radar',
+        name: 'RadarDashboard',
+        component: () => import('../views/dashboard/radar/index.vue'),
+        meta: { requiresAuth: true }
     }
 ]
 
