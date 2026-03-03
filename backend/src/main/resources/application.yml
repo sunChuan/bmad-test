@@ -30,3 +30,18 @@ management:
   endpoint:
     health:
       show-details: always
+
+# MyBatis-Plus 配置
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  configuration:
+    # 开启 SQL 日志输出（开发环境便于验证租户拦截器效果）
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 驼峰命名自动映射
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      # 逻辑删除字段配置
+      logic-delete-field: isDeleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
