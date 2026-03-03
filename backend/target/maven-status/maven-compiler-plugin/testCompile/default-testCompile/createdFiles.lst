@@ -1,0 +1,5 @@
+com\bmad\edge\DashboardIntegrationTest.class
+com\bmad\edge\RedisMockDataInjectorTest.class
+com\bmad\edge\config\TenantContextHolderTest.class
+com\bmad\edge\security\JwtUtilsTest.class
+com\bmad\edge\service\DashboardServiceTest.class

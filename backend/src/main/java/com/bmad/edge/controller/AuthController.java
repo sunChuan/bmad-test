@@ -45,7 +45,13 @@ public class AuthController {
             username = "district_director_" + code;
             roleType = "ROLE_DISTRICT_DIRECTOR";
             orgId = 200L;
-            districtId = 201L; // 区县 ID
+            // 尝试从 code 获取 districtId，例如 district_301 -> 301L，否则默认 201
+            try {
+                String idStr = code.substring(code.lastIndexOf("_") + 1);
+                districtId = Long.parseLong(idStr);
+            } catch (Exception e) {
+                districtId = 201L;
+            }
         } else if (code.startsWith("school_")) {
             // 模拟校级领导
             username = "school_leader_" + code;

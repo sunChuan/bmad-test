@@ -31,7 +31,7 @@ public class SecurityConfig {
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/health", "/api/v1/system/**", "/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
-                .requestMatchers("/api/v1/auth/sso-callback").permitAll()
+                .requestMatchers("/api/v1/auth/sso-callback", "/api/mock/**").permitAll()
                 .anyRequest().authenticated()
             );
 

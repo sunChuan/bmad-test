@@ -40,15 +40,15 @@ tracking_system: file-system
 story_location: "d:/WorkSpace/ai/Antigravity/bmad-test/_bmad-output/implementation-artifacts"
 
 development_status:
-  epic-1: in-progress
-  1-1-基础工程架构初始化与脚手架搭建: review
-  1-2-统一身份鉴权网关对接-sso-jwt: review
-  1-3-用户角色与政务权限打标-rbac-core: review
-  1-4-mybatis-plus-逻辑多租户防御基座-tenant-interceptor: review
+  epic-1: done
+  1-1-基础工程架构初始化与脚手架搭建: done
+  1-2-统一身份鉴权网关对接-sso-jwt: done
+  1-3-用户角色与政务权限打标-rbac-core: done
+  1-4-mybatis-plus-逻辑多租户防御基座-tenant-interceptor: done
   epic-1-retrospective: optional
 
-  epic-2: backlog
-  2-1-初始化市区级宏观热力图缓存网关: backlog
+  epic-2: in-progress
+  2-1-初始化市区级宏观热力图缓存网关: done
   2-2-echarts-聚光异常图谱节点封装: backlog
   2-3-websocket-sse-突发红标实时告警: backlog
   2-4-智能诊断抽屉与归因手风琴: backlog

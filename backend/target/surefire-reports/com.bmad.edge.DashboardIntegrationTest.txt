@@ -1,0 +1,30 @@
+-------------------------------------------------------------------------------
+Test set: com.bmad.edge.DashboardIntegrationTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 14.08 s <<< FAILURE! -- in com.bmad.edge.DashboardIntegrationTest
+com.bmad.edge.DashboardIntegrationTest.testCityAdminAccess -- Time elapsed: 0.029 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <0.08> but was: <0.0>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:898)
+	at com.bmad.edge.DashboardIntegrationTest.testCityAdminAccess(DashboardIntegrationTest.java:44)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+com.bmad.edge.DashboardIntegrationTest.testDistrictDirectorAccess -- Time elapsed: 0.023 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <0.02> but was: <0.0>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:898)
+	at com.bmad.edge.DashboardIntegrationTest.testDistrictDirectorAccess(DashboardIntegrationTest.java:53)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
