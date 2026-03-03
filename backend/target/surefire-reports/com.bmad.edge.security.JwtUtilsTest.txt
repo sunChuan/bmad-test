@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.bmad.edge.security.JwtUtilsTest
--------------------------------------------------------------------------------
-Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.808 s -- in com.bmad.edge.security.JwtUtilsTest
