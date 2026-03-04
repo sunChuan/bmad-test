@@ -6,6 +6,7 @@ import com.bmad.edge.service.DashboardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,6 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 import com.bmad.edge.config.TenantContextHolder;
 import com.bmad.edge.service.SseConnectionService;
+import com.bmad.edge.dto.SchoolDiagnosisDTO;
+
+import java.util.List;
+import java.util.Arrays;
 
 @RestController
 @RequestMapping("/api/v1/dashboard")
@@ -57,5 +62,42 @@ public class DashboardController {
                                            @RequestParam String message) {
         sseConnectionService.broadcastToPrefix(filterPrefix, message);
         return Result.success("预警消息下发成功: " + message);
+    }
+
+    /**
+     * 智能诊断抽屉数据检索（Mock）
+     * 提供一个虚拟 1.5s 延迟以在前端展示 Skeleton
+     * @param schoolId 学校 ID
+     */
+    @GetMapping("/radar/diagnosis/{schoolId}")
+    public Result<SchoolDiagnosisDTO> getSchoolDiagnosis(@PathVariable Long schoolId) {
+        try {
+            // 模拟后台 Python 通信、决策树溯源的耗时
+            Thread.sleep(1500);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+
+        // 构造虚假的回溯结论
+        SchoolDiagnosisDTO dto = SchoolDiagnosisDTO.builder()
+                .conclusion("最大剥离因子为：师资流失率与心理健康抽测骤降")
+                .confidence(92.5)
+                .factors(List.of(
+                        SchoolDiagnosisDTO.Factor.builder()
+                                .name("近一年骨干教师流失")
+                                .score(-12.4)
+                                .xAxis(Arrays.asList("24-Q1", "24-Q2", "24-Q3", "24-Q4", "25-Q1", "26-Q1"))
+                                .history(Arrays.asList(1.2, 2.5, 3.1, 4.0, 9.8, 12.4)) // 明显上升的流失率
+                                .build(),
+                        SchoolDiagnosisDTO.Factor.builder()
+                                .name("学生心理压线筛查比例")
+                                .score(-8.1)
+                                .xAxis(Arrays.asList("24-Q1", "24-Q2", "24-Q3", "24-Q4", "25-Q1", "26-Q1"))
+                                .history(Arrays.asList(5.5, 5.2, 5.0, 6.1, 7.8, 8.1)) 
+                                .build()
+                ))
+                .build();
+                
+        return Result.success(dto);
     }
 }

@@ -10,6 +10,7 @@
         ref="chartRef"
         @mouseover="handleMouseOver"
         @mouseout="handleMouseOut"
+        @click="handleChartClick"
       />
       
       <!-- 动态脉冲 Overlay 层，用于弥补 ECharts 内置图形动画效果不足 -->
@@ -25,6 +26,9 @@
         }"
       ></div>
     </div>
+    
+    <!-- 智能诊断与归因抽屉 -->
+    <RadarDiagnosisDrawer v-model:open="drawerOpen" :schoolId="selectedSchoolId" />
   </div>
 </template>
 
@@ -36,6 +40,7 @@ import { TooltipComponent, TitleComponent } from 'echarts/components';
 import { CanvasRenderer } from 'echarts/renderers';
 import VChart from 'vue-echarts';
 import { useSseMessage } from '../../../composables/useSseMessage';
+import RadarDiagnosisDrawer from './components/RadarDiagnosisDrawer.vue';
 
 // 注册必须的 ECharts 组件
 use([TreemapChart, TooltipComponent, TitleComponent, CanvasRenderer]);
@@ -44,18 +49,22 @@ const chartRef = ref<any>(null);
 const pulseRects = ref<any[]>([]);
 const { connect: connectSse } = useSseMessage();
 
+const drawerOpen = ref(false);
+const selectedSchoolId = ref<number | null>(null);
+
 // 假装从 API 获取带有风险层级的树形模型
 const mockTreeData = [
   {
     name: '中心城区',
     value: 120,
     children: [
-      { name: '第一实验小学', value: 40, status: 'normal' },
-      { name: '市二中', value: 50, status: 'warning' },
+      { name: '第一实验小学', value: 40, status: 'normal', id: 101 },
+      { name: '市二中', value: 50, status: 'warning', id: 102 },
       { 
         name: '建设路联合学校', 
         value: 30, 
         status: 'danger', // 核心预警
+        id: 103
       }
     ]
   },
@@ -63,11 +72,18 @@ const mockTreeData = [
     name: '郊县A区',
     value: 80,
     children: [
-      { name: '郊县一中', value: 60, status: 'danger' },
-      { name: '郊县职教', value: 20, status: 'normal' }
+      { name: '郊县一中', value: 60, status: 'danger', id: 201 },
+      { name: '郊县职教', value: 20, status: 'normal', id: 202 }
     ]
   }
 ];
+
+function handleChartClick(params: any) {
+  if (params.data && params.data.id) {
+    selectedSchoolId.value = params.data.id;
+    drawerOpen.value = true;
+  }
+}
 
 // ECharts Treemap 配置
 const chartOption = ref({
@@ -161,6 +177,14 @@ onMounted(() => {
   });
   // 启动 SSE 监听
   connectSse();
+  
+  // 提供无头浏览器 E2E 测试介入点
+  if (typeof window !== 'undefined') {
+    (window as any).triggerDiagnosis = (id: number) => {
+      selectedSchoolId.value = id;
+      drawerOpen.value = true;
+    };
+  }
 });
 
 </script>
