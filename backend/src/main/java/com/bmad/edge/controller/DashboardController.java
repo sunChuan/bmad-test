@@ -96,6 +96,22 @@ public class DashboardController {
                                 .history(Arrays.asList(5.5, 5.2, 5.0, 6.1, 7.8, 8.1)) 
                                 .build()
                 ))
+                .recommendations(List.of(
+                        SchoolDiagnosisDTO.Recommendation.builder()
+                                .id(101L)
+                                .title("市教育局下达本季度骨干教师安居补贴执行方案的红头文件")
+                                .summary("针对近期辖区内因待遇及购房压力产生的教师流失率升高，发布了阶段性强力留才薪酬补充政策指引。")
+                                .isAiRecommended(true)
+                                .content("<h2>骨干教师安居补贴执行方案</h2><p>为切实削减近年教育管理骨干外流的现象，建立稳定的名师梯队，市委经讨论决定：</p><ul><li>对满5年教龄的市级学科带头人一次性给予安居补贴 10 万元；</li><li>配合职称评定给予特殊岗位积分偏斜。</li></ul><p><em>本文档仅供内部参考部署</em></p>")
+                                .build(),
+                        SchoolDiagnosisDTO.Recommendation.builder()
+                                .id(102L)
+                                .title("春季学期校园学生心理危机预防及干预措施汇总")
+                                .summary("全辖境推行的分层心理预防辅导实战方案集锦。")
+                                .isAiRecommended(false)
+                                .content("<h2>校园学生心理危机预防干预措施</h2><p>应对日益突显的身心异常报警，特下发以下强制防范预警指导：</p><ol><li>各校需在本周内全覆盖实行无死角的问卷筛查。</li><li>建立高危名单班主任直系包保制度。</li></ol>")
+                                .build()
+                ))
                 .build();
                 
         return Result.success(dto);

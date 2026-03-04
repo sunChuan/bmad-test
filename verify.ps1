@@ -24,9 +24,9 @@ $frontendJob = Start-Job -ScriptBlock {
 Write-Host "Waiting 5 seconds for Frontend..."
 Start-Sleep -Seconds 5
 
-Write-Host "Running Playwright E2E Test..."
+Write-Host "Running Playwright E2E Test for RefCard..."
 cd d:\WorkSpace\ai\Antigravity\bmad-test\frontend
-node test-drawer.mjs
+node test-refcard.mjs
 $exitCode = $LASTEXITCODE
 
 Write-Host "Stopping background jobs..."

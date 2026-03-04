@@ -1,4 +1,5 @@
 com\bmad\edge\config\MybatisPlusConfig.class
+com\bmad\edge\dto\SchoolDiagnosisDTO$Recommendation$RecommendationBuilder.class
 com\bmad\edge\security\JwtAuthEntryPoint.class
 com\bmad\edge\dto\HeatMapDataDTO$HeatMapDataDTOBuilder.class
 com\bmad\edge\config\RedisConfig.class
@@ -14,6 +15,7 @@ com\bmad\edge\repository\SchoolMapper.class
 com\bmad\edge\controller\MockController.class
 com\bmad\edge\controller\SchoolController.class
 com\bmad\edge\service\SseConnectionService.class
+com\bmad\edge\dto\SchoolDiagnosisDTO$Recommendation.class
 com\bmad\edge\config\TenantContextHolder.class
 com\bmad\edge\dto\SchoolDiagnosisDTO$SchoolDiagnosisDTOBuilder.class
 com\bmad\edge\dto\HeatMapDataDTO.class

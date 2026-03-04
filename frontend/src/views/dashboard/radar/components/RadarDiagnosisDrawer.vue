@@ -31,6 +31,20 @@
             </div>
           </CollapsePanel>
         </Collapse>
+        
+        <!-- 经验智库推介区块 -->
+        <template v-if="diagnosisData.recommendations && diagnosisData.recommendations.length > 0">
+          <div class="mt-6 border-t border-gray-100 pt-4">
+            <h3 class="text-sm font-bold text-gray-500 mb-3 uppercase tracking-wider">专家智库推荐</h3>
+            <div class="space-y-3">
+              <RefCard 
+                v-for="rec in diagnosisData.recommendations" 
+                :key="rec.id.toString()" 
+                :data="rec" 
+              />
+            </div>
+          </div>
+        </template>
       </div>
       <div v-else-if="!loading" class="text-gray-400 text-center mt-10">
         无有效的归因数据
@@ -48,6 +62,7 @@ import { LineChart } from 'echarts/charts';
 import { GridComponent, TooltipComponent } from 'echarts/components';
 import { CanvasRenderer } from 'echarts/renderers';
 import VChart from 'vue-echarts';
+import RefCard from './RefCard.vue';
 
 // 注册子折线图表组件
 use([LineChart, GridComponent, TooltipComponent, CanvasRenderer]);

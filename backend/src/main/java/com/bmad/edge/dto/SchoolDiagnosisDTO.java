@@ -28,6 +28,42 @@ public class SchoolDiagnosisDTO {
      */
     private List<Factor> factors;
 
+    /**
+     * 针对这组归因结论自动匹配推介的智库对策文献列表
+     */
+    private List<Recommendation> recommendations;
+
+    @Data
+    @Builder
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class Recommendation {
+        /**
+         * 经验智库 ID
+         */
+        private Long id;
+        
+        /**
+         * 推介标题
+         */
+        private String title;
+        
+        /**
+         * 指接阅读的摘要简述
+         */
+        private String summary;
+        
+        /**
+         * 是否在醒目位置标注为 AI 强烈建议阅读
+         */
+        private Boolean isAiRecommended;
+        
+        /**
+         * 富文本正文实体，本应另外单独调用接口获取，方便演示一并携带
+         */
+        private String content;
+    }
+
     @Data
     @Builder
     @NoArgsConstructor
