@@ -27,6 +27,13 @@ const router = createRouter({
 
 router.beforeEach((to, _from, next) => {
     const token = localStorage.getItem('access_token');
+
+    // 如果缓存中包含 Token，且处于无需认证的鉴权页（如未重定向的跳板页），自动回流至大屏
+    if (token && to.name === 'Login') {
+        next({ name: 'RadarDashboard' })
+        return
+    }
+
     if (to.meta.requiresAuth && !token) {
         // Navigate to SSO (simulated by /login)
         next({ name: 'Login' })

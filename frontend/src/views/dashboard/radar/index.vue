@@ -141,6 +141,7 @@ function mapDataColors(data: any[]): any[] {
       name: item.name,
       value: item.value,
       status: item.status,
+      id: item.id,
       itemStyle: color ? { color } : undefined,
       children: item.children ? mapDataColors(item.children) : undefined
     };
