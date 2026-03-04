@@ -35,12 +35,14 @@ import { TreemapChart } from 'echarts/charts';
 import { TooltipComponent, TitleComponent } from 'echarts/components';
 import { CanvasRenderer } from 'echarts/renderers';
 import VChart from 'vue-echarts';
+import { useSseMessage } from '../../../composables/useSseMessage';
 
 // 注册必须的 ECharts 组件
 use([TreemapChart, TooltipComponent, TitleComponent, CanvasRenderer]);
 
-const chartRef = ref(null);
+const chartRef = ref<any>(null);
 const pulseRects = ref<any[]>([]);
+const { connect: connectSse } = useSseMessage();
 
 // 假装从 API 获取带有风险层级的树形模型
 const mockTreeData = [
@@ -112,7 +114,7 @@ const chartOption = ref({
 });
 
 // 遍历附加不同状态颜色
-function mapDataColors(data: any[]) {
+function mapDataColors(data: any[]): any[] {
   return data.map(item => {
     let color = undefined;
     if (item.status === 'danger') color = '#ef4444'; // Tailwind red-500
@@ -157,6 +159,8 @@ onMounted(() => {
   nextTick(() => {
     calculatePulseOverlays();
   });
+  // 启动 SSE 监听
+  connectSse();
 });
 
 </script>

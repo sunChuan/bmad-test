@@ -117,10 +117,19 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
      * 从 Authorization 请求头中提取 Bearer Token
      */
     private String parseJwt(HttpServletRequest request) {
+        // 首先尝试从 Header 获取
         String headerAuth = request.getHeader("Authorization");
         if (StringUtils.hasText(headerAuth) && headerAuth.startsWith("Bearer ")) {
             return headerAuth.substring(7);
         }
+        
+        // SSE (EventSource) 不支持在原生 JavaScript 中设置 Header，
+        // 尝试从 Query Parameter "token" 获取
+        String queryToken = request.getParameter("token");
+        if (StringUtils.hasText(queryToken)) {
+            return queryToken;
+        }
+        
         return null;
     }
 }
