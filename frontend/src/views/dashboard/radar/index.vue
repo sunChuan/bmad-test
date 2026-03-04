@@ -2,10 +2,11 @@
   <div class="radar-container p-4">
     <h2 class="text-xl font-bold mb-4">全辖区聚光异常图谱</h2>
     
-    <div class="relative w-full h-[600px] bg-slate-50 border rounded-lg shadow-inner overflow-hidden">
+    <div class="relative w-full h-[600px] bg-slate-50 border rounded-lg shadow-inner overflow-hidden" style="min-height: 600px; width: 100%; min-width: 800px;">
       <!-- ECharts 渲染区 -->
       <v-chart 
         class="chart w-full h-full" 
+        style="height: 600px; width: 100%;"
         :option="chartOption" 
         ref="chartRef"
         @mouseover="handleMouseOver"
