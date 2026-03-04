@@ -32,9 +32,11 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/health", "/api/v1/system/**", "/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
                 .requestMatchers("/api/v1/auth/sso-callback", "/api/mock/**", "/api/v1/dashboard/sse/trigger-alert").permitAll()
+                .requestMatchers("/open-api/**").permitAll() // 开放出口由专有 Filter 接管鉴权，Spring Security 原生校验放绿灯
                 .anyRequest().authenticated()
             );
 
+        http.addFilterBefore(new OpenApiAuthFilter(), UsernamePasswordAuthenticationFilter.class);
         http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();

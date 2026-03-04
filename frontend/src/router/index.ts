@@ -17,6 +17,24 @@ const routes = [
         name: 'RadarDashboard',
         component: () => import('../views/dashboard/radar/index.vue'),
         meta: { requiresAuth: true }
+    },
+    {
+        path: '/admin/sandbox',
+        name: 'SandboxConfig',
+        component: () => import('../views/admin/sandbox/SandboxConfig.vue'),
+        meta: { requiresAuth: true }
+    },
+    {
+        path: '/admin/data/fallback',
+        name: 'DataFallback',
+        component: () => import('../views/admin/data/DataFallback.vue'),
+        meta: { requiresAuth: true }
+    },
+    {
+        path: '/admin/cms/article',
+        name: 'ArticleManager',
+        component: () => import('../views/admin/cms/ArticleManager.vue'),
+        meta: { requiresAuth: true }
     }
 ]
 
